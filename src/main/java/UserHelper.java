@@ -22,4 +22,8 @@ public class UserHelper extends HelperBase {
         click(By.xpath("//a[.='LOGIN']"));
     }
 
+    public void acceptAlert() {
+        new WebDriverWait(wd,10).until(ExpectedConditions.alertIsPresent());
+        wd.switchTo().alert().accept();
+    }
 }

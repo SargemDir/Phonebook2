@@ -21,4 +21,18 @@ public class LoginTest extends TestBase {
 
     }
 
+    @Test
+    public void loginTestWithInvalidPassword() {
+        /*User user = new User()
+                .withEmail("anat@gmail.com")
+                .withPassword("Aa12345");*/
+
+        app.getUser().openLoginForm();
+        app.getUser().fillLoginForm("anat@gmail.com", "Aa12345");
+        //logger.info("Login with --> email: \"" + user.getEmail() + "\", password: \"" + user.getPassword() + "\"");
+        app.getUser().clickOkButtonLogin();
+        app.getUser().acceptAlert();
+        Assert.assertFalse(app.getUser().isLogged());
+    }
+
 }
